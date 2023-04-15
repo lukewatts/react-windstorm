@@ -26,5 +26,5 @@
     "target": "es2018",
     "useDefineForClassFields": true,
   },
-  "include": ["src/createTailwindProvider.tsx"]
+  "include": ["src/*.tsx"]
 }

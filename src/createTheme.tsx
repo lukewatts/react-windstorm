@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
 
-interface TailwindProviderReturnedObject {
-    theme: TailwindProviderObject;
+interface ThemeReturnedObject {
+    theme: ThemeObject;
 }
 
-type TailwindProviderObject = {
+type ThemeObject = {
     [key: string]: string;
 };
 
-type Keys = keyof TailwindProviderObject;
+type Keys = keyof ThemeObject;
 
-export const createTailwindProvider = (customTheme: TailwindProviderObject): Function => {
-    return (): TailwindProviderReturnedObject => {
+export const createTheme = (customTheme: ThemeObject): Function => {
+    return (): ThemeReturnedObject => {
         const [theme, setTheme] = useState(customTheme);
 
         useEffect(() => {
-            setTheme((_theme: TailwindProviderObject) => {
+            setTheme((_theme: ThemeObject) => {
                 Object.keys(customTheme).forEach((className: Keys) => {
                     const classes = customTheme[className];
                     const classNames = classes.split(" ");
                     const parsedClassNames = classNames.map((keyIdentifier: string): string => {
-                        if (keyIdentifier.startsWith("@")) {
+                      if (keyIdentifier.startsWith("@")) {
                             const objectKey = keyIdentifier.replace(/^@/, "");
 
                             return customTheme[objectKey];

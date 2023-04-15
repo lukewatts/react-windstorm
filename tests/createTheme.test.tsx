@@ -1,20 +1,20 @@
 import { test } from '@jest/globals';
-import { renderHook } from '@testing-library/react-hooks/dom' // will use react-dom
+import { renderHook } from '@testing-library/react-hooks/dom';
 
-import { createTailwindProvider } from '../dist/createTailwindProvider';
+import { createTheme } from '../dist/createTheme';
 
-const useTheme = createTailwindProvider({
+const useTheme = createTheme({
     heading: "font-bold",
     heading1: "@heading text-2xl",
     heading2: "@heading text-xl",
 });
 
-describe('createTailwindProvider', () => {
-    test('createTailwindProvider return hook', () => {
+describe('createTheme', () => {
+    test('createTheme return hook', () => {
         expect(useTheme).toBeInstanceOf(Function);
     });
 
-    test('hook return object with a theme property', () => {
+    test('hook returns object with a theme property', () => {
         const { result } = renderHook(() => useTheme());
         
         expect(result.current).toHaveProperty('theme');
@@ -26,7 +26,7 @@ describe('createTailwindProvider', () => {
         expect(result.current.theme).toBeInstanceOf(Object);
     });
 
-    test('theme object has properties heading, heading1 and heading2', () => {
+    test('theme object has expected properties', () => {
         const { result } = renderHook(() => useTheme());
         
         expect(result.current.theme).toHaveProperty('heading');
@@ -34,7 +34,7 @@ describe('createTailwindProvider', () => {
         expect(result.current.theme).toHaveProperty('heading2');
     });
 
-    test('theme object has properties heading, heading1 and heading2 with correct values', () => {
+    test('theme object properties have correct compiled values', () => {
         const { result } = renderHook(() => useTheme());
         
         expect(result.current.theme.heading).toBe('font-bold');
