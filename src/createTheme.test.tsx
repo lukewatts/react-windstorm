@@ -1,7 +1,7 @@
 import { test } from '@jest/globals';
 import { renderHook } from '@testing-library/react-hooks/dom';
 
-import { createTheme } from '../dist/createTheme';
+import { createTheme } from './createTheme';
 
 const useTheme = createTheme({
     heading: "font-bold",
