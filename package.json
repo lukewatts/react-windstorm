@@ -2,7 +2,7 @@
     "name": "react-windstorm",
     "description": "React Windstorm will create a Tailwind CSS theme provider which allows for quickly creating a Tailwind CSS theme for your React pages or components.",
     "author": "Luke Watts",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license": "MIT",
     "repository": {
         "type": "git",
