@@ -1,5 +1,5 @@
 import { test } from '@jest/globals';
-import { renderHook } from '@testing-library/react-hooks/dom';
+import { renderHook } from '@testing-library/react';
 
 import { createTheme } from './createTheme';
 
